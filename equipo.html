@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acerca de - Equipo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo del modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            text-align: center;
+        }
+
+        .modal-content {
+            margin: 8% auto 10px auto;
+            display: block;
+            border-radius: 50%;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .modal-caption {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="obra.html">Obra Literaria</a></li>
+                <li><a href="contexto.html">Contexto Histórico</a></li>
+                <li><a href="podcast.html">Video Podcast</a></li>
+                <li><a href="equipo.html">Nuestro Equipo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Nuestro Equipo de Trabajo</h2>
+        <div class="team-grid">
+            <!-- Integrante 1 -->
+            <div class="team-member">
+                <img src="imagenes/valentina.jpeg" alt="Valentina" class="clickable">
+                <h3>Valentina</h3>
+                <p><strong>Rol:</strong> Conductora</p>
+                <p>Aportación: Presentación del tema sobre las elecciones del PRI vs PAN en los años 2000.</p>
+            </div>
+
+            <!-- Integrante 2 -->
+            <div class="team-member">
+                <img src="imagenes/enrique.png" alt="Enrique" class="clickable">
+                <h3>Enrique</h3>
+                <p><strong>Rol:</strong> Co-conductor</p>
+                <p>Aportación: Explicación de la transición política y participación en el análisis del podcast.</p>
+            </div>
+
+            <!-- Integrante 3 -->
+            <div class="team-member">
+                <img src="imagenes/santiagomena.jpeg" alt="Mena" class="clickable">
+                <h3>Mena</h3>
+                <p><strong>Rol:</strong> Vicente Fox</p>
+                <p>Aportación: Representación del candidato del PAN y explicación del cambio político en México.</p>
+            </div>
+
+            <!-- Integrante 4 -->
+            <div class="team-member">
+                <img src="imagenes/renata.png" alt="Renata" class="clickable">
+                <h3>Renata</h3>
+                <p><strong>Rol:</strong> Ciudadana optimista</p>
+                <p>Aportación: Opinión positiva sobre la victoria del PAN y la esperanza de un cambio democrático.</p>
+            </div>
+
+            <!-- Integrante 5 -->
+            <div class="team-member">
+                <img src="imagenes/brenda.jpeg" alt="Brenda" class="clickable">
+                <h3>Brenda</h3>
+                <p><strong>Rol:</strong> Ciudadana escéptica</p>
+                <p>Aportación: Perspectiva crítica sobre el cambio del PRI al PAN y sus posibles resultados.</p>
+            </div>
+
+            <!-- Integrante 6 -->
+            <div class="team-member">
+                <img src="imagenes/mario.png" alt="Mario" class="clickable">
+                <h3>Mario</h3>
+                <p><strong>Rol:</strong> Historiador</p>
+                <p>Aportación: Explicación histórica del dominio del PRI y la importancia de las elecciones del 2000.</p>
+            </div>
+
+            <!-- Integrante 7 -->
+            <div class="team-member">
+                <img src="imagenes/natalia.jpeg" alt="Natalia" class="clickable">
+                <h3>Natalia</h3>
+                <p><strong>Rol:</strong> Analista social</p>
+                <p>Aportación: Análisis sobre la participación ciudadana y el impacto político entre PRI y PAN.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="imgModal">
+        <div class="modal-caption" id="caption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 - Proyecto Historia</p>
+    </footer>
+
+    <script>
+        // Script para abrir modal al hacer clic en imagen
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("imgModal");
+        const captionText = document.getElementById("caption");
+        const closeBtn = document.getElementsByClassName("close")[0];
+
+        document.querySelectorAll(".clickable").forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt; // muestra el nombre debajo
+            }
+        });
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
